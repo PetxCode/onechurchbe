@@ -278,7 +278,7 @@ const updateMemberImage = async (req, res) => {
 
 const updateMemberInfo = async (req, res) => {
 	try {
-		const { fullName, phoneNumber } = req.body;
+		const { displayName, fullName, phoneNumber } = req.body;
 		const user = await memberModel.findById(req.params.id);
 
 		if (user) {
@@ -292,7 +292,7 @@ const updateMemberInfo = async (req, res) => {
 				{ new: true }
 			);
 			res.status(200).json({
-				message: "church updated",
+				message: "member updated",
 				data: viewAdmin,
 			});
 		}
