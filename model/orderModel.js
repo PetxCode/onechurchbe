@@ -14,6 +14,9 @@ const orderSchema = mongoose.Schema(
 		churchName: {
 			type: String,
 		},
+		displayName: {
+			type: String,
+		},
 		churchCode: {
 			type: String,
 		},

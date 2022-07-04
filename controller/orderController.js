@@ -30,6 +30,7 @@ const createContent = async (req, res) => {
 				admin: memberUser.admin,
 				churchName: memberUser.churchName,
 				churchCode: memberUser.churchCode,
+				displayName: memberUser.displayName,
 
 				what: book.title,
 				detail: book.description,
