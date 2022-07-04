@@ -141,6 +141,7 @@ const updateAdminInfo = async (req, res) => {
 					fullName,
 					churchName,
 					careLine,
+					displayName,
 				},
 				{ new: true }
 			);

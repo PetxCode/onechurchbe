@@ -287,6 +287,7 @@ const updateMemberInfo = async (req, res) => {
 				{
 					fullName,
 					phoneNumber,
+					displayName,
 				},
 				{ new: true }
 			);
