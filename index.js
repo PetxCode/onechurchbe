@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-	res.status(200).json({ message: "We are ready" });
+	res.status(200).json({ message: "You are welcome to One Church Network" });
 });
 
 app.use("/api/admin", require("./router/adminRouter"));
