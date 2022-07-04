@@ -11,7 +11,7 @@ const GOOGLE_REDIRECT = "https://developers.google.com/oauthplayground";
 const oAuth = new google.auth.OAuth2(GOOGLE_ID, GOOGLE_SECRET, GOOGLE_REDIRECT);
 
 oAuth.setCredentials({ refresh_token: GOOGLE_REFRESHTOKEN });
-const localURL = "http://localhost:3000";
+const localURL = "https://onechurchnetwork.herokuapp.com";
 // const mainURL = "http://localhost:2233"
 const url = localURL;
 

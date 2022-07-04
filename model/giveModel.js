@@ -12,6 +12,9 @@ const giveSchema = mongoose.Schema(
 		admin: {
 			type: String,
 		},
+		image: {
+			type: String,
+		},
 		ministry: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "ministrys",
