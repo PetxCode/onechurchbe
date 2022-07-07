@@ -5,11 +5,13 @@ const userSchema = mongoose.Schema(
 		churchName: {
 			type: String,
 			unique: true,
+			trim: true,
 		},
 		email: {
 			type: String,
 			unique: true,
 			lowercase: true,
+			trim: true,
 		},
 		password: {
 			type: String,
