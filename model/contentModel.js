@@ -5,14 +5,15 @@ const audioContentSchema = mongoose.Schema(
 		title: {
 			type: String,
 		},
-		decription: {
-			type: String,
-		},
-		audio: {
+		description: {
 			type: String,
 		},
 
 		audioFile: {
+			type: String,
+		},
+
+		audioCover: {
 			type: String,
 		},
 

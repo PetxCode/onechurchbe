@@ -13,6 +13,7 @@ const createContent = async (req, res) => {
 			description,
 			audioFile,
 			cost,
+			audioCover,
 		});
 
 		content.user = getUser;
@@ -40,7 +41,7 @@ const viewContent = async (req, res) => {
 	try {
 		const content = await adminModel
 			.findById(req.params.id)
-			.populate({ path: "audioContent", options: { createdAt: -1 } });
+			.populate({ path: "audioContent", options: { sort: { createdAt: -1 } } });
 
 		res.status(201).json({ message: "View content", data: content });
 	} catch (error) {

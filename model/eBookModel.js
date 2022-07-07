@@ -8,7 +8,7 @@ const eBookContentSchema = mongoose.Schema(
 		description: {
 			type: String,
 		},
-		eBook: {
+		eBookCover: {
 			type: String,
 		},
 		eBookID: {

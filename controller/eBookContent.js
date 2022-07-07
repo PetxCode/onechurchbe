@@ -6,13 +6,13 @@ const cloudinary = require("../utils/cloudinary");
 const createContent = async (req, res) => {
 	try {
 		const { cost, title, description, eBook } = req.body;
-
 		const getUser = await adminModel.findById(req.params.id);
 		const content = await new contentModel({
 			title,
 			description,
 			eBook,
 			cost,
+			eBookCover,
 		});
 
 		content.user = getUser;
