@@ -11,15 +11,14 @@ const createContent = async (req, res) => {
 		const book = await bookModel.findById(req.params.book);
 
 		const memberUser = await memberModel.findById(req.params.id);
-		// console.log(memberUser);
 
 		const getUser = await adminModel.findOne({
 			admin: memberUser.admin,
 		});
 
-		const church = await adminModel.findOne({
-			churchName: memberUser.churchName,
-		});
+		// const church = await adminModel.findOne({
+		// 	churchName: memberUser.churchName,
+		// });
 
 		const code = await adminModel.findOne({
 			churchCode: memberUser.churchCode,
