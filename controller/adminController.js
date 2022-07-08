@@ -75,27 +75,21 @@ const deleteAdmin = async (req, res) => {
 
 const updateAdminImage = async (req, res) => {
 	try {
-		const user = await adminModel.findById(req.params.id);
+		const image = await cloudinary.uploader.upload(req.file.path);
+		console.log(req.file.path, image);
 
-		if (user) {
-			await cloudinary.uploader.destroy(user?.avatarID);
-
-			const image = await cloudinary.uploader.upload(req.file.path);
-			console.log(req.file.path, image);
-
-			const viewAdmin = await adminModel.findByIdAndUpdate(
-				req.params.id,
-				{
-					avatar: image.secure_url,
-					avatarID: image.public_id,
-				},
-				{ new: true }
-			);
-			res.status(200).json({
-				message: "church updated",
-				data: viewAdmin,
-			});
-		}
+		const viewAdmin = await adminModel.findByIdAndUpdate(
+			req.params.id,
+			{
+				avatar: image.secure_url,
+				avatarID: image.public_id,
+			},
+			{ new: true }
+		);
+		res.status(200).json({
+			message: "church updated",
+			data: viewAdmin,
+		});
 	} catch (error) {
 		res.status(404).json({ message: error.message });
 	}
@@ -103,27 +97,21 @@ const updateAdminImage = async (req, res) => {
 
 const updateAdminLogo = async (req, res) => {
 	try {
-		const user = await adminModel.findById(req.params.id);
+		const image = await cloudinary.uploader.upload(req.file.path);
+		console.log(req.file.path, image);
 
-		if (user) {
-			await cloudinary.uploader.destroy(user?.avatarID);
-
-			const image = await cloudinary.uploader.upload(req.file.path);
-			console.log(req.file.path, image);
-
-			const viewAdmin = await adminModel.findByIdAndUpdate(
-				req.params.id,
-				{
-					logo: image.secure_url,
-					logoID: image.public_id,
-				},
-				{ new: true }
-			);
-			res.status(200).json({
-				message: "church updated",
-				data: viewAdmin,
-			});
-		}
+		const viewAdmin = await adminModel.findByIdAndUpdate(
+			req.params.id,
+			{
+				logo: image.secure_url,
+				logoID: image.public_id,
+			},
+			{ new: true }
+		);
+		res.status(200).json({
+			message: "church Logo updated",
+			data: viewAdmin,
+		});
 	} catch (error) {
 		res.status(404).json({ message: error.message });
 	}

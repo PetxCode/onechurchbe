@@ -31,7 +31,7 @@ router.route("/reset").post(resetPassword);
 router.route("/change/:id/:token").post(changePassword);
 
 router.route("/:id/image").patch(upload, updateAdminImage);
-router.route("/:id/logo").patch(logo, updateAdminLogo);
+router.route("/:id/logo").patch(upload, updateAdminLogo);
 
 router.route("/:id").get(viewAdmin).patch(updateAdminInfo).delete(deleteAdmin);
 router.route("/:id/:member").delete(deleteMember);
