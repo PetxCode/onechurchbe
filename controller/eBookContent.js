@@ -12,7 +12,6 @@ const createContent = async (req, res) => {
 			description,
 			eBook,
 			cost,
-			eBookCover,
 		});
 
 		content.user = getUser;

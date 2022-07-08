@@ -13,7 +13,7 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../utils/multer");
 
-router.route("/:id/create").post(upload, createContent);
+router.route("/:id/create").post(createContent);
 router.route("/:id/").get(viewContent);
 
 router.route("/").get(viewContents);

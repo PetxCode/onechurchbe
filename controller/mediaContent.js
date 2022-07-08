@@ -5,7 +5,7 @@ const cloudinary = require("../utils/cloudinary");
 
 const createContent = async (req, res) => {
 	try {
-		const { cost, title, description, audioFile } = req.body;
+		const { audioCover, cost, title, description, audioFile } = req.body;
 
 		const getUser = await adminModel.findById(req.params.id);
 		const content = await new contentModel({
