@@ -5,13 +5,14 @@ const cloudinary = require("../utils/cloudinary");
 
 const createContent = async (req, res) => {
 	try {
-		const { cost, title, description, eBook } = req.body;
+		const { eBookCover, cost, title, description, eBook } = req.body;
 		const getUser = await adminModel.findById(req.params.id);
 		const content = await new contentModel({
 			title,
 			description,
 			eBook,
 			cost,
+			eBookCover,
 		});
 
 		content.user = getUser;
@@ -39,7 +40,7 @@ const viewContent = async (req, res) => {
 	try {
 		const content = await adminModel
 			.findById(req.params.id)
-			.populate({ path: "eBookContent", options: { createdAt: -1 } });
+			.populate({ path: "eBookContent", options: { sort: { createdAt: -1 } } });
 
 		res.status(201).json({ message: "View content", data: content });
 	} catch (error) {
