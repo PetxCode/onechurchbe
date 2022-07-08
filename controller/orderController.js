@@ -11,6 +11,7 @@ const createContent = async (req, res) => {
 		const book = await bookModel.findById(req.params.book);
 
 		const memberUser = await memberModel.findById(req.params.id);
+		// console.log(memberUser);
 
 		const getUser = await adminModel.findOne({
 			admin: memberUser.admin,
@@ -24,7 +25,7 @@ const createContent = async (req, res) => {
 			churchCode: memberUser.churchCode,
 		});
 
-		if (code && church) {
+		if (code) {
 			const content = await new contentModel({
 				who: memberUser.fullName,
 				admin: memberUser.admin,
@@ -42,8 +43,8 @@ const createContent = async (req, res) => {
 			content.admin = getUser;
 			content.save();
 
-			church.order.push(mongoose.Types.ObjectId(content._id));
-			church.save();
+			code.order.push(mongoose.Types.ObjectId(content._id));
+			code.save();
 
 			res.status(201).json({ message: "order created", data: content });
 		}

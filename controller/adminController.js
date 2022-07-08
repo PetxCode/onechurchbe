@@ -119,7 +119,7 @@ const updateAdminLogo = async (req, res) => {
 
 const updateAdminInfo = async (req, res) => {
 	try {
-		const { fullName, churchName, careLine } = req.body;
+		const { fullName, displayName, careLine } = req.body;
 		const user = await adminModel.findById(req.params.id);
 
 		if (user) {
@@ -127,7 +127,6 @@ const updateAdminInfo = async (req, res) => {
 				user._id,
 				{
 					fullName,
-					churchName,
 					careLine,
 					displayName,
 				},
